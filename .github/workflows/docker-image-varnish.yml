@@ -96,7 +96,6 @@ jobs:
           tags: |
             drpayyne/varnish-multi-arch:6.5
             ghcr.io/drpayyne/warden-varnish:6.5
-            ghcr.io/drpayyne/warden-varnish:latest
   varnish64:
     if: ${{ github.event.inputs.varnish64 == '1' }}
     runs-on: ubuntu-latest

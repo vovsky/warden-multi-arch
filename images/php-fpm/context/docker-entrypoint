@@ -35,7 +35,7 @@ then
 fi
 
 # Configure composer2 as default when specified
-if [ "${COMPOSER_VERSION:-}" = "2" ]; then
+if [ "${COMPOSER_VERSION:-}" == "2" ]; then
   sudo cp /usr/bin/composer2 /usr/bin/composer
 fi
 

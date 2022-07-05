@@ -5,6 +5,9 @@ WARDEN_ENV_PATH="$(locateEnvPath)" || exit $?
 loadEnvConfig "${WARDEN_ENV_PATH}" || exit $?
 assertDockerRunning
 
+# export env variables without the need to open a new shell session
+export $(grep -v '^#' ${WARDEN_ENV_PATH}/.env | xargs -0)
+
 if (( ${#WARDEN_PARAMS[@]} == 0 )) || [[ "${WARDEN_PARAMS[0]}" == "help" ]]; then
   warden env --help || exit $? && exit $?
 fi

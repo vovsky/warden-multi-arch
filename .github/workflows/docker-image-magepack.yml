@@ -5,6 +5,13 @@ on: workflow_dispatch
 jobs:
   docker:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        version:
+          - "2.3"
+
     steps:
       -
         name: Checkout
@@ -23,7 +30,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Login to GitHub Container Registry
-        uses: docker/login-action@v1 
+        uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
@@ -32,11 +39,10 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          file: images/magepack/2.3/Dockerfile
+          file: images/magepack/${{ matrix.version }}/Dockerfile
           context: images/magepack/context
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            drpayyne/warden-magepack:2.3
-            ghcr.io/drpayyne/warden-magepack:2.3
-            ghcr.io/drpayyne/warden-magepack:latest
+            drpayyne/warden-magepack:${{ matrix.version }}
+            ghcr.io/drpayyne/warden-magepack:${{ matrix.version }}

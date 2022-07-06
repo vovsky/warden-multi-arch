@@ -2,7 +2,7 @@ version: "3.5"
 services:
   magepack:
     hostname: "${WARDEN_ENV_NAME}-magepack"
-    image: ghcr.io/drpayyne/warden-magepack
+    image: ghcr.io/drpayyne/warden-magepack:${MAGEPACK_VERSION:-2.3}
     environment:
       - TRAEFIK_DOMAIN
       - TRAEFIK_SUBDOMAIN

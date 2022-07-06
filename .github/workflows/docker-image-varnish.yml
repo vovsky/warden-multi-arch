@@ -50,5 +50,5 @@ jobs:
           build-args: VARNISH_VERSION=${{ env.VARNISH_VERSION }}
           push: ${{ github.ref == 'refs/heads/develop' && !env.ACT }}
           tags: |
-            drpayyne/warden-magepack:${{ matrix.version }}
-            ghcr.io/drpayyne/warden-magepack:${{ matrix.version }}
+            drpayyne/warden-varnish:${{ matrix.version }}
+            ghcr.io/drpayyne/warden-varnish:${{ matrix.version }}

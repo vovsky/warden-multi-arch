@@ -1,11 +1,14 @@
-FROM fedora:34
+FROM quay.io/centos/centos:stream8
 
 RUN dnf upgrade -y \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
-ARG RPM_SCRIPT=https://packagecloud.io/install/repositories/varnishcache/varnish70/script.rpm.sh
+ARG VARNISH_VERSION=60lts
+ARG RPM_SCRIPT=https://packagecloud.io/install/repositories/varnishcache/varnish${VARNISH_VERSION}/script.rpm.sh
 RUN curl -s "${RPM_SCRIPT}" | bash \
+    && dnf install -y epel-release \
+    && dnf module disable -y varnish \
     && dnf install -y varnish gettext \
     && dnf clean all \
     && rm -rf /var/cache/dnf
@@ -23,5 +26,5 @@ ENV ACL_PURGE_HOST  0.0.0.0/0
 
 EXPOSE 	80
 CMD envsubst '${BACKEND_HOST} ${BACKEND_PORT} ${ACL_PURGE_HOST}' \
-        < /etc/varnish/default.vcl.template > /etc/varnish/default.vcl \
+    < /etc/varnish/default.vcl.template > /etc/varnish/default.vcl \
     && varnishd -F -f $VCL_CONFIG -s malloc,$CACHE_SIZE $VARNISHD_PARAMS

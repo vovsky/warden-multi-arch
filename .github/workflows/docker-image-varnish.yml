@@ -94,7 +94,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: images/varnish/context
-          file: images/varnish/7.1/Dockerfile
+          file: images/varnish/7.0/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |

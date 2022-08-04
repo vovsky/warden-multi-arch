@@ -1,11 +1,6 @@
-name: Docker Image Varnish
-on:
-  push:
-    paths:
-      - version
-      - images/.trigger
-      - images/varnish/**
-      - .github/workflows/*varnish*
+name: Varnish
+
+on: workflow_dispatch
 
 jobs:
   varnish:

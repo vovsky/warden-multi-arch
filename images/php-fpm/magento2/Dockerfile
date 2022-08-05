@@ -3,8 +3,6 @@ FROM ghcr.io/drpayyne/warden-php:${PHP_TAG}
 
 USER root
 
-RUN install-php-extensions xsl sockets
-
 RUN npm install -g grunt-cli gulp yarn
 
 RUN set -eux \

@@ -16,7 +16,7 @@ source "${WARDEN_DIR}/utils/core.sh"
 source "${WARDEN_DIR}/utils/env.sh"
 
 ## verify docker compose is installed
-if ! which docker compose >/dev/null; then
+if ! which docker >/dev/null; then
   fatal "docker compose could not be found; please install and try again."
 fi
 

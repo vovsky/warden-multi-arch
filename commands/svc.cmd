@@ -12,11 +12,11 @@ fi
 ## allow return codes from sub-process to bubble up normally
 trap '' ERR
 
-## configure docker-compose files
+## configure docker compose files
 DOCKER_COMPOSE_ARGS=()
 
 DOCKER_COMPOSE_ARGS+=("-f")
-DOCKER_COMPOSE_ARGS+=("${WARDEN_DIR}/docker/docker-compose.yml")
+DOCKER_COMPOSE_ARGS+=("${WARDEN_DIR}/docker/docker compose.yml")
 
 ## special handling when 'svc up' is run
 if [[ "${WARDEN_PARAMS[0]}" == "up" ]]; then
@@ -60,8 +60,8 @@ if [[ "${WARDEN_PARAMS[0]}" == "up" ]]; then
     fi
 fi
 
-## pass ochestration through to docker-compose
-docker-compose \
+## pass ochestration through to docker compose
+docker compose \
     --project-directory "${WARDEN_HOME_DIR}" -p warden \
     "${DOCKER_COMPOSE_ARGS[@]}" "${WARDEN_PARAMS[@]}" "$@"
 

@@ -9,7 +9,7 @@ After running `warden svc up` for the first time following installation, the fol
 
 ### Customizable Settings
 
-When spinning up global services via `docker-compose` Warden uses `~/.warden` as the project directory allowing a `.env` placed at `~/.warden/.env` to function for overriding variables in the `docker-compose` configuration used to deploy these services.
+When spinning up global services via `docker compose` Warden uses `~/.warden` as the project directory allowing a `.env` placed at `~/.warden/.env` to function for overriding variables in the `docker compose` configuration used to deploy these services.
 
 The following options are available (with default values indicated):
 

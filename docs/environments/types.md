@@ -1,10 +1,10 @@
 ### Environment Types
 
-Warden currently supports three environment types. These types are passed to `env-init` when configuring a project for local development for the first time. This list of environment types can also be seen by running `warden env-init --help` on your command line. The `docker-compose` configuration used to assemble each environment type can be found in the [environments directory](https://github.com/davidalger/warden/tree/master/environments) on Github.
+Warden currently supports three environment types. These types are passed to `env-init` when configuring a project for local development for the first time. This list of environment types can also be seen by running `warden env-init --help` on your command line. The `docker compose` configuration used to assemble each environment type can be found in the [environments directory](https://github.com/davidalger/warden/tree/master/environments) on Github.
 
 #### Local
 
-The `local` environment type does nothing more than declare the `docker-compose` version and label the project network so Warden will recognize it as belonging to an environment orchestrated by Warden.
+The `local` environment type does nothing more than declare the `docker compose` version and label the project network so Warden will recognize it as belonging to an environment orchestrated by Warden.
 
 When this type is used, a `.warden/warden-env.yml` may be placed in the root directory of the project workspace to define the desired containers, volumes, etc needed for the project. An example of a `local` environment type being used can be found in the [m2demo project](https://github.com/davidalger/m2demo).
 

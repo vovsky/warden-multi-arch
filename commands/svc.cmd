@@ -16,7 +16,7 @@ trap '' ERR
 DOCKER_COMPOSE_ARGS=()
 
 DOCKER_COMPOSE_ARGS+=("-f")
-DOCKER_COMPOSE_ARGS+=("${WARDEN_DIR}/docker/docker compose.yml")
+DOCKER_COMPOSE_ARGS+=("${WARDEN_DIR}/docker/docker-compose.yml")
 
 ## special handling when 'svc up' is run
 if [[ "${WARDEN_PARAMS[0]}" == "up" ]]; then

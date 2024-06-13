@@ -5,7 +5,7 @@ services:
     image: traefik:${TRAEFIK_VERSION:-2.2}
     ports:
       - "${TRAEFIK_LISTEN:-0.0.0.0}:80:80"     # The HTTP port
-      - "${TRAEFIK_LISTEN:-0.0.0.0}:443:443"   # The HTTPS port
+      - "${TRAEFIK_LISTEN:-0.0.0.0}:8080:443"   # The HTTPS port
     volumes:
       - ${WARDEN_HOME_DIR}/etc/traefik/traefik.yml:/etc/traefik/traefik.yml
       - ${WARDEN_HOME_DIR}/etc/traefik/dynamic.yml:/etc/traefik/dynamic.yml
